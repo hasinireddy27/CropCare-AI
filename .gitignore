@@ -1,12 +1,30 @@
+# Python
 venv/
 __pycache__/
 *.pyc
 .env
-uploads/*
-!uploads/.gitkeep
-model/*.keras
-model/*.h5
-model/*.tflite
-database/*.db
+
+# VS Code and system files
 .vscode/
 .DS_Store
+
+# User uploads
+uploads/*
+!uploads/.gitkeep
+
+# Dataset
+training/raw_dataset/
+training/prepared_dataset/
+training/selected_dataset/
+*.zip
+
+# Training outputs that can be regenerated
+training/outputs/*.csv
+training/outputs/*.json
+
+# Database
+database/*.db
+
+# Large trained models
+model/*.h5
+model/*.tflite
