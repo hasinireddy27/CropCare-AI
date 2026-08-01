@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}CropCare AI | Crop Disease Detection{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <p class="tagline">Smart crop health analysis</p>
+
+            <h1>
+                Detect crop diseases using artificial intelligence
+            </h1>
+
+            <p class="hero-description">
+                Upload a clear crop-leaf image and receive an
+                AI-generated disease prediction with confidence,
+                symptoms and preventive information.
+            </p>
+
+            <a class="primary-button" href="{{ url_for('detect') }}">
+                Scan a Crop Leaf
+            </a>
+        </div>
+
+        <div class="hero-card">
+            <div class="leaf-icon">🌿</div>
+            <h2>Fast and Accessible</h2>
+            <p>
+                Designed to work on mobile phones, tablets and laptops.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="detection" class="section">
+    <div class="container">
+        <div class="section-heading">
+            <p class="tagline">Disease detection</p>
+            <h2>Upload a crop-leaf image</h2>
+            <p>
+                The image upload and CNN prediction system will be
+                added in the next steps.
+            </p>
+        </div>
+
+        <div class="upload-placeholder">
+    <span>📷</span>
+
+    <h3>Start crop disease detection</h3>
+
+    <p>
+        Upload a leaf image from your laptop or capture one using
+        your phone camera.
+    </p>
+
+    <a
+        class="primary-button detection-link"
+        href="{{ url_for('detect') }}"
+    >
+        Open Detection Tool
+    </a>
+</div>
+    </div>
+</section>
+
+<section id="features" class="section alternate-section">
+    <div class="container">
+        <div class="section-heading">
+            <p class="tagline">Features</p>
+            <h2>What CropCare AI will provide</h2>
+        </div>
+
+        <div class="feature-grid">
+            <article class="feature-card">
+                <h3>Leaf Image Analysis</h3>
+                <p>
+                    Upload or capture a crop-leaf image using a phone
+                    or laptop.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <h3>Disease Prediction</h3>
+                <p>
+                    Identify the possible crop disease using a trained
+                    CNN model.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <h3>Confidence Score</h3>
+                <p>
+                    Display the model confidence for every prediction.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <h3>Crop Guidance</h3>
+                <p>
+                    Show symptoms, prevention methods and recommended
+                    next steps.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section">
+    <div class="container">
+        <div class="about-card">
+            <p class="tagline">About the project</p>
+
+            <h2>Built using CNN and Flask</h2>
+
+            <p>
+                CropCare AI combines a TensorFlow image-classification
+                model with a responsive Flask website. It is designed
+                to help users identify possible crop diseases through
+                leaf images.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

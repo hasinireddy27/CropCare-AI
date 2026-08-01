@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Detection Result | CropCare AI{% endblock %}
+
+{% block content %}
+<section class="result-page">
+    <div class="container">
+        <div class="result-layout">
+
+            <article class="result-image-card">
+                <img
+                    class="result-leaf-image"
+                    src="{{ url_for(
+                        'uploaded_file',
+                        filename=saved_filename
+                    ) }}"
+                    alt="Uploaded crop leaf"
+                >
+
+                <div class="uploaded-file-box">
+                    <span>Uploaded image</span>
+                    <strong>{{ uploaded_filename }}</strong>
+                </div>
+            </article>
+
+            <article class="prediction-card">
+                {% if result.is_reliable %}
+
+                    {% if result.is_healthy %}
+                        <div class="result-status healthy-status">
+                            Healthy
+                        </div>
+                    {% else %}
+                        <div class="result-status disease-status">
+                            Disease detected
+                        </div>
+                    {% endif %}
+
+                    <p class="tagline">AI analysis result</p>
+
+                    <h1>{{ result.disease }}</h1>
+
+                    <div class="prediction-details">
+                        <div class="prediction-detail">
+                            <span>Crop</span>
+                            <strong>{{ result.crop }}</strong>
+                        </div>
+
+                        <div class="prediction-detail">
+                            <span>Confidence</span>
+                            <strong>
+                                {{ result.confidence }}%
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="confidence-section">
+                        <div class="confidence-heading">
+                            <span>Prediction confidence</span>
+                            <strong>
+                                {{ result.confidence }}%
+                            </strong>
+                        </div>
+
+                        <div class="confidence-track">
+                            <div
+                                class="confidence-fill"
+                                style="width: {{ result.confidence }}%;"
+                            ></div>
+                        </div>
+                    </div>
+
+                    {% if result.is_healthy %}
+                        <div class="result-message healthy-message">
+                            <h2>The leaf appears healthy</h2>
+
+                            <p>
+                                The model did not identify a supported
+                                disease in this image.
+                            </p>
+                        </div>
+                    {% else %}
+                        <div class="result-message warning-message">
+                            <h2>Possible crop disease identified</h2>
+
+                            <p>
+                                This result is an AI prediction. Confirm
+                                the diagnosis with an agricultural expert
+                                before applying pesticides or treatment.
+                            </p>
+                        </div>
+                    {% endif %}
+
+                {% else %}
+                    <div class="result-status uncertain-status">
+                        Uncertain result
+                    </div>
+
+                    <p class="tagline">AI analysis result</p>
+
+                    <h1>Unable to identify reliably</h1>
+
+                    <p>
+                        The highest prediction was
+                        <strong>{{ result.disease }}</strong>
+                        with only
+                        <strong>{{ result.confidence }}%</strong>
+                        confidence.
+                    </p>
+
+                    <div class="result-message warning-message">
+                        <h2>Try another image</h2>
+
+                        <p>
+                            Capture one clear leaf in bright lighting.
+                            Keep the leaf close to the camera and avoid
+                            complicated backgrounds.
+                        </p>
+                    </div>
+                {% endif %}
+
+                <div class="top-predictions">
+                    <h2>Top predictions</h2>
+
+                    {% for prediction in result.top_predictions %}
+                        <div class="top-prediction-row">
+                            <div>
+                                <strong>
+                                    {{ prediction.disease }}
+                                </strong>
+
+                                <span>
+                                    {{ prediction.crop }}
+                                </span>
+                            </div>
+
+                            <strong>
+                                {{
+                                    "%.2f"|format(
+                                        prediction.confidence
+                                    )
+                                }}%
+                            </strong>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="result-actions">
+                    <a
+                        class="primary-button"
+                        href="{{ url_for('detect') }}"
+                    >
+                        Scan Another Leaf
+                    </a>
+
+                    <a
+                        class="text-button"
+                        href="{{ url_for('home') }}"
+                    >
+                        Return Home
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

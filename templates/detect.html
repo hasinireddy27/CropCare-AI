@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block title %}Detect Crop Disease | CropCare AI{% endblock %}
+
+{% block content %}
+<section class="detection-page">
+    <div class="container">
+        <div class="section-heading detection-heading">
+            <p class="tagline">Crop disease detection</p>
+
+            <h1>Upload or capture a crop-leaf image</h1>
+
+            <p>
+                Use a clear image containing one main leaf. Avoid blurred
+                images, dark lighting and crowded backgrounds.
+            </p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-container">
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form
+            id="uploadForm"
+            class="upload-card"
+            action="{{ url_for('detect') }}"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+            <div class="upload-grid">
+                <div class="upload-controls">
+                    <div
+                        id="dropZone"
+                        class="drop-zone"
+                        role="button"
+                        tabindex="0"
+                    >
+                        <div class="upload-icon">🌿</div>
+
+                        <h2>Select a leaf image</h2>
+
+                        <p>
+                            Drag and drop an image here, or select an option
+                            below.
+                        </p>
+
+                        <p class="file-requirements">
+                            PNG, JPG, JPEG or WEBP · Maximum 8 MB
+                        </p>
+                    </div>
+
+                    <input
+                        id="galleryInput"
+                        class="hidden-file-input"
+                        type="file"
+                        name="leaf_image"
+                        accept="image/png,image/jpeg,image/webp"
+                    >
+
+                    <input
+                        id="cameraInput"
+                        class="hidden-file-input"
+                        type="file"
+                        accept="image/*"
+                        capture="environment"
+                    >
+
+                    <div class="upload-button-group">
+                        <button
+                            id="galleryButton"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Choose from Gallery
+                        </button>
+
+                        <button
+                            id="cameraButton"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Open Camera
+                        </button>
+                    </div>
+
+                    <div
+                        id="selectedFileInfo"
+                        class="selected-file-info"
+                        hidden
+                    >
+                        <span id="selectedFileName"></span>
+
+                        <button
+                            id="removeImageButton"
+                            class="remove-button"
+                            type="button"
+                        >
+                            Remove
+                        </button>
+                    </div>
+                </div>
+
+                <div id="previewPanel" class="preview-panel">
+                    <div id="emptyPreview" class="empty-preview">
+                        <span>📷</span>
+                        <h3>Image preview</h3>
+                        <p>Your selected image will appear here.</p>
+                    </div>
+
+                    <img
+                        id="imagePreview"
+                        class="image-preview"
+                        alt="Selected crop leaf preview"
+                        hidden
+                    >
+                </div>
+            </div>
+
+            <div class="image-guidelines">
+                <h3>For better detection</h3>
+
+                <div class="guideline-grid">
+                    <div>
+                        <strong>Use good lighting</strong>
+                        <p>Capture the image in natural or bright light.</p>
+                    </div>
+
+                    <div>
+                        <strong>Focus on one leaf</strong>
+                        <p>Keep the affected leaf clearly visible.</p>
+                    </div>
+
+                    <div>
+                        <strong>Avoid blur</strong>
+                        <p>Hold the camera steady while capturing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button
+                id="detectButton"
+                class="primary-button full-width-button"
+                type="submit"
+                disabled
+            >
+                Continue to Detection
+            </button>
+
+            <div id="loadingState" class="loading-state" hidden>
+                <div class="spinner"></div>
+                <p>Uploading image...</p>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
