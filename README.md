@@ -1,5 +1,7 @@
 # 🌿 CropCare AI – Intelligent Crop Disease Detection System
 
+> **Developed by Hasini Reddy Namireddy**
+
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.13-blue?style=for-the-badge&logo=python"/>
   <img src="https://img.shields.io/badge/Flask-Web%20Framework-black?style=for-the-badge&logo=flask"/>
@@ -8,53 +10,70 @@
   <img src="https://img.shields.io/badge/MobileNetV2-Transfer%20Learning-green?style=for-the-badge"/>
 </p>
 
-## 📖 Overview
+---
 
-**CropCare AI** is an AI-powered crop disease detection web application that helps farmers and agriculture enthusiasts identify plant diseases from leaf images.
+# 📖 About the Project
 
-The system uses **Transfer Learning with MobileNetV2** to classify crop diseases from the **PlantVillage dataset** and provides predictions with confidence scores through an easy-to-use web interface.
+CropCare AI is an AI-powered web application designed to identify crop diseases from leaf images using Deep Learning. The system leverages **MobileNetV2 Transfer Learning** to classify diseases from the PlantVillage dataset and provides fast, accurate predictions with confidence scores.
 
-The application is fully responsive and works seamlessly on both **desktop and mobile devices**.
+The application features a clean, responsive interface that works smoothly on both desktop and mobile devices, making it accessible for farmers, students, and researchers.
 
 ---
 
-## ✨ Features
+# ✨ Features
 
 * 🌱 Detect crop diseases from leaf images
-* 📷 Upload images or capture directly from a mobile camera
+* 📷 Upload images or capture directly using a mobile camera
 * 🤖 AI-powered disease prediction using MobileNetV2
 * 📊 Displays confidence score
-* 📈 Shows Top-3 predicted diseases
-* 🌿 Detects healthy and diseased leaves
-* 📱 Responsive UI for desktop and mobile
-* ⚡ Fast prediction using TensorFlow & Flask
+* 📈 Shows Top-3 AI predictions
+* 🌿 Identifies healthy and diseased leaves
+* 📱 Fully responsive design
+* ⚡ Fast inference using TensorFlow
 
 ---
 
-## 🧠 AI Model
+# 🧠 AI Model
 
-* **Model:** MobileNetV2 (Transfer Learning)
-* **Framework:** TensorFlow 2.21
-* **Image Size:** 224 × 224
-* **Classes:** 38 Crop Disease Categories
-* **Dataset:** PlantVillage Dataset
-
----
-
-## 🛠️ Technology Stack
-
-| Category        | Technologies            |
-| --------------- | ----------------------- |
-| Programming     | Python                  |
-| Backend         | Flask                   |
-| Deep Learning   | TensorFlow, Keras       |
-| AI Model        | MobileNetV2             |
-| Frontend        | HTML5, CSS3, JavaScript |
-| Version Control | Git & GitHub            |
+| Feature           | Details                               |
+| ----------------- | ------------------------------------- |
+| Model             | MobileNetV2 (Transfer Learning)       |
+| Framework         | TensorFlow 2.21                       |
+| Dataset           | PlantVillage                          |
+| Number of Classes | 38                                    |
+| Input Image Size  | 224 × 224                             |
+| Output            | Disease Prediction + Confidence Score |
 
 ---
 
-## 📂 Project Structure
+# 🛠️ Technology Stack
+
+### Backend
+
+* Python
+* Flask
+
+### Artificial Intelligence
+
+* TensorFlow
+* Keras
+* MobileNetV2
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+
+### Tools
+
+* Git
+* GitHub
+* VS Code
+
+---
+
+# 📂 Project Structure
 
 ```text
 CropCareAI/
@@ -71,41 +90,39 @@ CropCareAI/
 
 ---
 
-## 🚀 Installation
+# 🚀 Installation
 
-### Clone the repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/hasinireddy27/CropCare-AI.git
 ```
 
-### Navigate to the project
+### Navigate to the Project
 
 ```bash
 cd CropCare-AI
 ```
 
-### Create a virtual environment
+### Create a Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-### Activate the virtual environment
-
-**Windows**
+### Activate the Environment (Windows)
 
 ```bash
 venv\Scripts\activate
 ```
 
-### Install dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run the application
+### Run the Application
 
 ```bash
 python app.py
@@ -119,7 +136,7 @@ http://127.0.0.1:5000
 
 ---
 
-## 📸 Application Workflow
+# 📸 Application Workflow
 
 ```text
 Leaf Image
@@ -131,40 +148,50 @@ Image Upload
 Image Preprocessing
       │
       ▼
-MobileNetV2 Prediction
+MobileNetV2 AI Model
       │
       ▼
-Disease Classification
+Disease Prediction
       │
       ▼
 Confidence Score
       │
       ▼
-Prediction Result
+Final Result
 ```
 
 ---
 
-## 📊 Future Enhancements
+# 📈 Future Enhancements
 
 * 🌍 Multi-language Support
 * 🎤 Voice-Based Disease Explanation
-* 📱 Progressive Web App (PWA)
 * ☁️ Cloud Deployment
+* 📱 Progressive Web App (PWA)
 * 🤖 AI-powered Treatment Recommendations
-* 📈 Prediction History Dashboard
+* 📊 Prediction History Dashboard
 
 ---
 
-## 👩‍💻 Developer
+# 👩‍💻 Developer
 
-**Hasini Reddy Namireddy**
+## **Hasini Reddy Namireddy**
 
-* 🎓 B.Tech – Artificial Intelligence & Machine Learning
-* 💻 AI | Machine Learning | Computer Vision | Generative AI Enthusiast
+**Artificial Intelligence & Machine Learning Engineer**
+
+* 🎓 B.Tech in Artificial Intelligence & Machine Learning
+* 💻 Passionate about AI, Computer Vision, Deep Learning, and Generative AI
+* 🌱 Building intelligent solutions that solve real-world problems through Artificial Intelligence
 
 ---
 
-## ⭐ Support
+## 📬 Connect With Me
 
-If you found this project useful, please consider giving it a **⭐ Star** on GitHub. It helps support the project and motivates future development.
+* **GitHub:** https://github.com/hasinireddy27
+* **LinkedIn:** *(Add your LinkedIn profile URL here)*
+
+---
+
+# ⭐ Support
+
+If you like this project, please consider giving it a **⭐ Star** on GitHub. Your support motivates me to build more AI-powered solutions and contribute to the open-source community.
