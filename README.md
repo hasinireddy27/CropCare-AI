@@ -188,8 +188,7 @@ Final Result
 ## 📬 Connect With Me
 
 * **GitHub:** https://github.com/hasinireddy27
-* **LinkedIn:** *(Add your LinkedIn profile URL here)*
-
+* **LinkedIn:**  https://www.linkedin.com/in/hasini-namireddy-18a062302?utm_source=share_via&utm_content=profile&utm_medium=member_android
 ---
 
 # ⭐ Support
